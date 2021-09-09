@@ -72,8 +72,8 @@ function AddNote() {
             autoFocus
           />
           <div>
-            <button className="float-right px-4 p-2 text-sm hover:bg-blue-50 hover:text-blue-400 rounded-md">
-              Save
+            <button className="float-right px-4 p-2 text-sm hover:bg-red-50 hover:text-red-400 rounded-md">
+              Close
             </button>
           </div>
         </form>
