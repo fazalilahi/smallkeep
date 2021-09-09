@@ -54,22 +54,22 @@ const Sidebar = () => {
           <div className="flex flex-col justify-between bg-gray-50 pt-16 h-screen">
             <div>
               <div className="flex items-center">
-                <a href="/" className="w-16 flex justify-center">
+                <Link to="/" className="w-16 flex justify-center">
                   <img
                     src="/images/notes.svg"
                     alt="note icon"
                     className="py-2"
                   />
-                </a>
+                </Link>
               </div>
               <div className="flex items-center">
-                <a href="/archive" className="w-16 flex justify-center">
+                <Link to="/archive" className="w-16 flex justify-center">
                   <img
                     src="/images/archive.svg"
                     alt="archive icon"
                     className="py-2"
                   />
-                </a>
+                </Link>
               </div>
             </div>
           </div>
