@@ -1,0 +1,13 @@
+  const dispatch = useDispatch();
+
+useEffect(() => {
+    setNotesFiltered(
+      notes?.filter((item) => item.content.includes(searchValue))
+    );
+  }, [searchValue]);
+
+
+  /**effects */
+  useEffect(() => {
+    // dispatch(getNotes());
+  }, [dispatch]);
