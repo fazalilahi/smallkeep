@@ -1,4 +1,4 @@
-import isEmpty from "lodash.isempty";
+import isEmpty from 'lodash.isempty';
 
 /**local */
 import {
@@ -7,16 +7,16 @@ import {
   ADD_NOTE,
   UPDATE_NOTE,
   DELETE_NOTE,
-} from "./../actions/types";
+} from './../actions/types';
 import {
   getNotesFromStore,
   addNoteToStore,
   updateNoteAtStore,
   deleteNoteFromStore,
-} from "./../../api";
+} from './../../api';
 
 /**TODO: remove below test code */
-import { staticNotes } from "./../../data/static";
+import { staticNotes } from './../../data/static';
 
 /**
  * Retrieves a single note of given id
@@ -53,7 +53,7 @@ export const getNotes = () => {
 /**
  * Adds given note to the list of notes.
  * @param {object} note - The note object to be added to the list of notes
- * @returns
+ * @returns void
  */
 export const addNote = (note) => {
   addNoteToStore(note);
@@ -67,7 +67,7 @@ export const addNote = (note) => {
 /**
  * Updates note object.
  * @param {object} note - The note object to be updated
- * @returns
+ * @returns void
  */
 export const updateNote = (note) => {
   updateNoteAtStore(note);
@@ -81,7 +81,7 @@ export const updateNote = (note) => {
 /**
  * Deletes a note of given id.
  * @param {string} id - The id of the note to be deleted from the list of notes.
- * @returns
+ * @returns void
  */
 export const deleteNote = (id) => {
   deleteNoteFromStore(id);

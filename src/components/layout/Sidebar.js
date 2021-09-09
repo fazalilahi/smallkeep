@@ -12,13 +12,13 @@ const Sidebar = () => {
       <div className="absolute">
         <button
           onClick={(e) => toggleShow(e)}
-          className="absolute left-0 top-0 w-16 flex justify-center pt-4 z-20"
+          className="absolute left-0 top-0 w-16 flex justify-center pt-4 z-20 "
         >
           <img src="/images/menu.svg" alt="hamburger menu icon" />
         </button>
 
         {show ? (
-          <div>
+          <div className="">
             <div className="flex flex-col justify-between bg-gray-50 pt-16 w-40 z-10 absolute h-screen shadow-2xl">
               <div>
                 <div className="flex items-center">
@@ -51,7 +51,7 @@ const Sidebar = () => {
           </div>
         ) : (
           //hide
-          <div className="flex flex-col justify-between bg-gray-50 pt-16 h-screen">
+          <div className="absolute flex flex-col justify-between bg-gray-50 pt-16 h-screen">
             <div>
               <div className="flex items-center">
                 <Link to="/" className="w-16 flex justify-center">

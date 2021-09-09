@@ -1,7 +1,14 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
 
-const TextInputGroup = ({ name, value, placeholder, type, onChange }) => {
+const TextInputGroup = ({
+  name,
+  value,
+  placeholder,
+  type,
+  onChange,
+  ...rest
+}) => {
   return (
     <div>
       <input
@@ -11,6 +18,7 @@ const TextInputGroup = ({ name, value, placeholder, type, onChange }) => {
         placeholder={placeholder}
         value={value}
         onChange={onChange}
+        {...rest}
       />
     </div>
   );
@@ -25,7 +33,7 @@ TextInputGroup.propTypes = {
 };
 
 TextInputGroup.defaultProps = {
-  type: "text",
+  type: 'text',
 };
 
 export default TextInputGroup;
