@@ -48,7 +48,7 @@ const SearchBar = () => {
               autofocus
             />
             <Link to="/" className="flex items-center">
-              <button className="text-sm px-4 py-2 hover:bg-blue-50 rounded-md">
+              <button className="text-xs px-4 py-2 text-bg-gray-400 hover:bg-red-50 hover:text-red-400 rounded-md">
                 close
               </button>
             </Link>
