@@ -1,11 +1,11 @@
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-import TextareaAutosize from "react-autosize-textarea";
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import TextareaAutosize from 'react-autosize-textarea';
 
 /**local */
-import TextInputGroup from "../layout/TextInputGroup";
-import Note from "./../../models/note";
-import { addNote } from "../../redux/actions/notesAction";
+import TextInputGroup from '../layout/TextInputGroup';
+import Note from './../../models/note';
+import { addNote } from '../../redux/actions/notesAction';
 
 function AddNote() {
   const dispatch = useDispatch();
@@ -41,7 +41,7 @@ function AddNote() {
           onClick={toggleBox}
           className="p-2 border rounded-md w-11/12 sm:w-8/12 md:w-6/12 shadow px-4 text-gray-400"
         >
-          Take a note...{" "}
+          Take a note...{' '}
         </div>
       ) : (
         <form
@@ -67,8 +67,8 @@ function AddNote() {
             onChange={handleInputChange}
           />
           <div>
-            <button className="float-right px-2 p-1 text-sm hover:bg-blue-50 rounded-md">
-              Close
+            <button className="float-right px-4 p-2 text-sm hover:bg-blue-50 hover:text-blue-400 rounded-md">
+              Save
             </button>
           </div>
         </form>

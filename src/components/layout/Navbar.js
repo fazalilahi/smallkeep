@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   return (
@@ -13,10 +13,12 @@ const Navbar = () => {
           <h1 className="text-xl text-blue-500">SmallKeep</h1>
         </span>
       </div>
-      <span className="flex items-center p-1 px-4 text-sm hover:bg-blue-50 rounded-md">
+      <span className="flex items-center p-1 px-4 text-xs font-extralight hover:bg-blue-50 rounded-md group">
         <Link to="/search">
           <img src="/images/search.svg" alt="search icon" className="px-2" />
-          <button className="text-bg-gray-500">search</button>
+          <button className="text-bg-gray-200 group-hover:text-blue-400">
+            search
+          </button>
         </Link>
       </span>
     </nav>
