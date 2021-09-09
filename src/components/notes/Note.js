@@ -1,12 +1,12 @@
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-import isEqual from "lodash.isequal";
-import TextareaAutosize from "react-autosize-textarea";
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import isEqual from 'lodash.isequal';
+import TextareaAutosize from 'react-autosize-textarea';
 
 /**local */
-import TextInputGroup from "./../layout/TextInputGroup";
-import Modal from "./../layout/Modal";
-import { deleteNote, updateNote } from "./../../redux/actions/notesAction";
+import TextInputGroup from './../layout/TextInputGroup';
+import Modal from './../layout/Modal';
+import { deleteNote, updateNote } from './../../redux/actions/notesAction';
 
 function Note({ note }) {
   const dispatch = useDispatch();
@@ -41,11 +41,11 @@ function Note({ note }) {
 
   return (
     <div>
-      <div className="border border-gray-200 rounded-md m-2 hover:shadow font-light">
+      <div className="border border-gray-200 rounded-md m-2 hover:shadow">
         <div className="p-1 overflow-hidden">
           <div onClick={toggleModal}>
             <h4 className="p-2">{title}</h4>
-            <p className="p-2">{content}</p>
+            <p className="p-2 font-extralight">{content}</p>
           </div>
           <Modal show={isOpen} onClose={handleUpdate}>
             <div>
@@ -59,11 +59,12 @@ function Note({ note }) {
                 />
                 <TextareaAutosize
                   required
-                  className="p-2 w-full"
+                  className="p-2 w-full font-extralight"
                   name="content"
                   value={noteObj.content}
                   placeholder="Take a note..."
                   onChange={handleInputChange}
+                  autoFocus
                 />
                 <div>
                   <button className="float-right px-2 p-1 text-sm hover:bg-blue-50 rounded-md">
@@ -78,7 +79,7 @@ function Note({ note }) {
           {/* delete button */}
           <button
             onClick={() => dispatch(deleteNote(id))}
-            className="px-2 py-1 p-6 hover:bg-blue-50 rounded-full"
+            className="hover:bg-blue-50 rounded-full h-8 w-8 flex items-center justify-center"
           >
             <img src="images/delete.svg" alt="trash icon to delete note" />
           </button>
@@ -89,7 +90,7 @@ function Note({ note }) {
                 updateNote({ ...noteObj, isArchived: !noteObj.isArchived })
               )
             }
-            className="px-2 py-1 p-6 hover:bg-blue-50 rounded-full"
+            className="px-2 py-1 p-6 hover:bg-blue-50 rounded-full h-8 w-8 flex items-center justify-center"
           >
             {noteObj.isArchived && (
               <img

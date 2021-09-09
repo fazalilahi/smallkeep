@@ -36,7 +36,7 @@ const SearchBar = () => {
   return (
     <div>
       <div className="flex justify-center">
-        <div className="flex justify-center py-3 font-light w-11/12 sm:w-8/12 md:w-6/12">
+        <div className="flex justify-center py-3 w-11/12 sm:w-8/12 md:w-6/12">
           <div className="border-b border-gray-200 p-2 px-4 flex items-center">
             <img src="/images/search.svg" alt="search icon" />
             <TextInputGroup
@@ -45,10 +45,10 @@ const SearchBar = () => {
               placeholder="Search"
               onChange={handleInputChange}
               value={searchValue}
-              autofocus
+              autoFocus
             />
             <Link to="/" className="flex items-center">
-              <button className="text-xs px-4 py-2 text-bg-gray-400 hover:bg-red-50 hover:text-red-400 rounded-md">
+              <button className="text-sm px-4 py-2 text-bg-gray-400 hover:bg-red-50 hover:text-red-400 rounded-md">
                 close
               </button>
             </Link>
