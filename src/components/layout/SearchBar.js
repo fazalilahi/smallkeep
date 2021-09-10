@@ -23,7 +23,6 @@ const SearchBar = () => {
   }, [dispatch]);
 
   useEffect(() => {
-    console.log(`[SearchBar]->Notes Changed`);
     if (!isEmpty(searchValue)) {
       let filteredNotes = getFilteredNotes(searchValue);
       setNotesFiltered(filteredNotes);
@@ -51,7 +50,21 @@ const SearchBar = () => {
       <div className="flex justify-center">
         <div className="flex justify-center py-3 w-11/12 sm:w-8/12 md:w-6/12">
           <div className="border-b border-gray-200 p-2 px-4 flex items-center">
-            <img src="/images/search.svg" alt="search icon" />
+            {/* <img src="/images/search.svg" alt="search icon" /> */}
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-4 w-4"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+              />
+            </svg>
             <TextInputGroup
               type="text"
               name="search"
