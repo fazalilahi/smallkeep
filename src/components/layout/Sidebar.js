@@ -12,9 +12,11 @@ const Sidebar = () => {
       <div className="absolute">
         <button
           onClick={(e) => toggleShow(e)}
-          className="absolute left-0 top-0 w-16 flex justify-center pt-4 z-20 "
+          className="absolute left-0 top-0 w-16 flex justify-center py-2  z-20 "
         >
-          <img src="/images/menu.svg" alt="hamburger menu icon" />
+          <div className="hover:bg-blue-100 rounded-full h-10 w-10 flex items-center justify-center">
+            <img src="/images/menu.svg" alt="hamburger menu icon" />
+          </div>
         </button>
 
         {show ? (
@@ -23,11 +25,13 @@ const Sidebar = () => {
               <div>
                 <div className="flex items-center">
                   <Link to="/" className="w-16 flex justify-center">
-                    <img
-                      src="/images/notes.svg"
-                      alt="note icon"
-                      className="py-2"
-                    />
+                    <div className="hover:bg-gray-100 rounded-full h-10 w-10 flex items-center justify-center">
+                      <img
+                        src="/images/notes.svg"
+                        alt="note icon"
+                        className="py-2"
+                      />
+                    </div>
                   </Link>
                   <div>
                     <Link to="/">Notes</Link>
@@ -35,11 +39,13 @@ const Sidebar = () => {
                 </div>
                 <div className="flex items-center">
                   <Link to="/archive" className="w-16 flex justify-center">
-                    <img
-                      src="/images/archive.svg"
-                      alt="archive icon"
-                      className="py-2"
-                    />
+                    <div className="hover:bg-gray-100 rounded-full h-10 w-10 flex items-center justify-center">
+                      <img
+                        src="/images/archive.svg"
+                        alt="archive icon"
+                        className="py-2"
+                      />
+                    </div>
                   </Link>
                   <div>
                     <Link to="/archive">Archive</Link>
@@ -55,20 +61,24 @@ const Sidebar = () => {
             <div>
               <div className="flex items-center">
                 <Link to="/" className="w-16 flex justify-center">
-                  <img
-                    src="/images/notes.svg"
-                    alt="note icon"
-                    className="py-2"
-                  />
+                  <div className="hover:bg-gray-100 rounded-full h-10 w-10 flex items-center justify-center">
+                    <img
+                      src="/images/notes.svg"
+                      alt="note icon"
+                      className="py-2"
+                    />
+                  </div>
                 </Link>
               </div>
               <div className="flex items-center">
                 <Link to="/archive" className="w-16 flex justify-center">
-                  <img
-                    src="/images/archive.svg"
-                    alt="archive icon"
-                    className="py-2"
-                  />
+                  <div className="hover:bg-gray-100 rounded-full h-10 w-10 flex items-center justify-center">
+                    <img
+                      src="/images/archive.svg"
+                      alt="archive icon"
+                      className="py-2"
+                    />
+                  </div>
                 </Link>
               </div>
             </div>

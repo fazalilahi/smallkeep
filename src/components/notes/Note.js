@@ -67,6 +67,26 @@ function Note({ note }) {
                   autoFocus
                 />
                 <div>
+                  <button className="float-left px-2 p-1 hover:bg-blue-50 rounded-full h-8 w-8 flex items-center justify-center">
+                    <img
+                      src="images/delete.svg"
+                      alt="trash icon to delete note"
+                    />
+                  </button>
+                  <button className="float-left px-2 p-1 hover:bg-blue-50 rounded-full h-8 w-8 flex items-center justify-center">
+                    {noteObj.isArchived && (
+                      <img
+                        src="images/unarchive.svg"
+                        alt="Un-archive icon to un-archive note"
+                      />
+                    )}
+                    {!noteObj.isArchived && (
+                      <img
+                        src="images/archive.svg"
+                        alt="archive icon to archive note"
+                      />
+                    )}
+                  </button>
                   <button className="float-right px-2 p-1 text-sm hover:bg-blue-50 rounded-md">
                     Close
                   </button>
