@@ -1,12 +1,14 @@
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import isEqual from 'lodash.isequal';
-import TextareaAutosize from 'react-autosize-textarea';
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import isEqual from "lodash.isequal";
+import TextareaAutosize from "react-autosize-textarea";
 
 /**local */
-import TextInputGroup from './../layout/TextInputGroup';
-import Modal from './../layout/Modal';
-import { deleteNote, updateNote } from './../../redux/actions/notesAction';
+import { deleteNote, updateNote } from "./../../redux/actions/notesAction";
+import TextInputGroup from "./../layout/TextInputGroup";
+import Modal from "./../layout/Modal";
+import DeleteBtn from "./DeleteBtn";
+import ArchiveBtn from "./ArchiveBtn";
 
 function Note({ note }) {
   const dispatch = useDispatch();
@@ -18,12 +20,8 @@ function Note({ note }) {
   const [noteObj, setNoteObj] = useState(note);
   const [isOpen, setIsOpen] = useState(false);
 
-  const toggleModal = () => {
-    setIsOpen(!isOpen);
-  };
-
   /**handlers */
-  const handleUpdate = (e) => {
+  const handleOnSubmit = (e) => {
     e.preventDefault();
 
     toggleModal();
@@ -32,11 +30,27 @@ function Note({ note }) {
     if (!isEqual(noteObj, note)) dispatch(updateNote(noteObj));
   };
 
+  const handleToggleArchive = (e) => {
+    let obj = { ...noteObj };
+    obj.isArchived = !noteObj.isArchived;
+    setNoteObj(obj);
+    dispatch(updateNote(obj));
+  };
+
+  const handleOnDelete = () => {
+    dispatch(deleteNote(id));
+  };
+
   const handleInputChange = (e) => {
     let obj = { ...noteObj };
     obj[e.target.name] = e.target.value;
 
     setNoteObj(obj);
+  };
+
+  /**function: to toggle model visibility */
+  const toggleModal = () => {
+    setIsOpen(!isOpen);
   };
 
   return (
@@ -47,9 +61,9 @@ function Note({ note }) {
             <h4 className="p-2">{title}</h4>
             <p className="p-2 font-extralight">{content}</p>
           </div>
-          <Modal show={isOpen} onClose={handleUpdate}>
+          <Modal show={isOpen} onClose={handleOnSubmit}>
             <div>
-              <form onSubmit={handleUpdate}>
+              <form onSubmit={handleOnSubmit}>
                 <TextInputGroup
                   type="text"
                   name="title"
@@ -66,65 +80,37 @@ function Note({ note }) {
                   onChange={handleInputChange}
                   autoFocus
                 />
-                <div>
-                  <button className="float-left px-2 p-1 hover:bg-blue-50 rounded-full h-8 w-8 flex items-center justify-center">
-                    <img
-                      src="images/delete.svg"
-                      alt="trash icon to delete note"
+                <div className="flex justify-between">
+                  <div className="flex justify-start">
+                    {/* model:archiveBtn */}
+                    <ArchiveBtn
+                      handleToggleArchive={handleToggleArchive}
+                      isArchived={noteObj.isArchived}
                     />
-                  </button>
-                  <button className="float-left px-2 p-1 hover:bg-blue-50 rounded-full h-8 w-8 flex items-center justify-center">
-                    {noteObj.isArchived && (
-                      <img
-                        src="images/unarchive.svg"
-                        alt="Un-archive icon to un-archive note"
-                      />
-                    )}
-                    {!noteObj.isArchived && (
-                      <img
-                        src="images/archive.svg"
-                        alt="archive icon to archive note"
-                      />
-                    )}
-                  </button>
-                  <button className="float-right px-2 p-1 text-sm hover:bg-blue-50 rounded-md">
-                    Close
-                  </button>
+                    {/* model:deleteBtn */}
+                    <DeleteBtn handleOnDelete={handleOnDelete} />
+                  </div>
+                  <div className="flex justify-end">
+                    <button className="px-2 p-1 text-sm hover:bg-blue-50 rounded-md">
+                      Close
+                    </button>
+                  </div>
                 </div>
               </form>
             </div>
           </Modal>
         </div>
-        <div className="flex flex-row-reverse p-1">
-          {/* delete button */}
-          <button
-            onClick={() => dispatch(deleteNote(id))}
-            className="hover:bg-blue-50 rounded-full h-8 w-8 flex items-center justify-center"
-          >
-            <img src="images/delete.svg" alt="trash icon to delete note" />
-          </button>
+
+        {/* footer */}
+        <div className="flex p-1">
           {/* archive button */}
-          <button
-            onClick={() =>
-              dispatch(
-                updateNote({ ...noteObj, isArchived: !noteObj.isArchived })
-              )
-            }
-            className="px-2 py-1 p-6 hover:bg-blue-50 rounded-full h-8 w-8 flex items-center justify-center"
           >
-            {noteObj.isArchived && (
-              <img
-                src="images/unarchive.svg"
-                alt="Un-archive icon to un-archive note"
-              />
-            )}
-            {!noteObj.isArchived && (
-              <img
-                src="images/archive.svg"
-                alt="archive icon to archive note"
-              />
-            )}
-          </button>
+          <ArchiveBtn
+            handleToggleArchive={handleToggleArchive}
+            isArchived={noteObj.isArchived}
+          />
+          {/* delete button */}
+          <DeleteBtn handleOnDelete={handleOnDelete} />
         </div>
       </div>
     </div>

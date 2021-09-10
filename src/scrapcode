@@ -1,13 +1,32 @@
-  const dispatch = useDispatch();
+<button onClick={handleToggleArchive}
+  className="px-2 py-1 p-6 hover:bg-blue-50 rounded-full h-8 w-8 flex items-center justify-center">
+  {noteObj.isArchived && (
+  <img src="images/unarchive.svg" alt="Un-archive icon to un-archive note" />
+  )}
+  {!noteObj.isArchived && (
+  <img src="images/archive.svg" alt="archive icon to archive note" />
+  )}
+</button>
+
+
+<button className="float-left px-2 p-1 hover:bg-blue-50 rounded-full h-8 w-8 flex items-center justify-center">
+  <img src="images/delete.svg" alt="trash icon to delete note" />
+</button>
+
+<button onClick={handleOnDelete} className="hover:bg-blue-50 rounded-full h-8 w-8 flex items-center justify-center">
+  <img src="images/delete.svg" alt="trash icon to delete note" />
+</button>
+
+const dispatch = useDispatch();
 
 useEffect(() => {
-    setNotesFiltered(
-      notes?.filter((item) => item.content.includes(searchValue))
-    );
-  }, [searchValue]);
+setNotesFiltered(
+notes?.filter((item) => item.content.includes(searchValue))
+);
+}, [searchValue]);
 
 
-  /**effects */
-  useEffect(() => {
-    // dispatch(getNotes());
-  }, [dispatch]);
+/**effects */
+useEffect(() => {
+// dispatch(getNotes());
+}, [dispatch]);
