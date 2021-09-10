@@ -104,7 +104,7 @@ function Note({ note }) {
         {/* footer */}
         <div className="flex p-1">
           {/* archive button */}
-          >
+        
           <ArchiveBtn
             handleToggleArchive={handleToggleArchive}
             isArchived={noteObj.isArchived}
