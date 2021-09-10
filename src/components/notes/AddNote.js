@@ -64,7 +64,7 @@ function AddNote() {
           />
 
           <TextareaAutosize
-            className="p-2 font-extralight"
+            className="p-2 font-extralight w-full"
             name="content"
             value={note.content}
             placeholder="Take a note..."

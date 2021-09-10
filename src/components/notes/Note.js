@@ -56,10 +56,10 @@ function Note({ note }) {
   return (
     <div>
       <div className="border border-gray-200 rounded-md m-2 hover:shadow">
-        <div className="p-1 overflow-hidden">
+        <div className="px-2 p-1 overflow-hidden">
           <div onClick={toggleModal}>
-            <h4 className="p-2">{title}</h4>
-            <p className="p-2 font-extralight">{content}</p>
+            <h4 className="p-2 overflow-hidden">{title}</h4>
+            <p className="p-2 font-extralight overflow-hidden">{content}</p>
           </div>
           <Modal show={isOpen} onClose={handleOnSubmit}>
             <div>
@@ -104,7 +104,7 @@ function Note({ note }) {
         {/* footer */}
         <div className="flex p-1">
           {/* archive button */}
-        
+
           <ArchiveBtn
             handleToggleArchive={handleToggleArchive}
             isArchived={noteObj.isArchived}

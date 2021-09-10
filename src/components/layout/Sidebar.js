@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Sidebar = () => {
   const [show, setShow] = useState(false);
@@ -9,7 +9,7 @@ const Sidebar = () => {
 
   return (
     <div>
-      <div className="absolute">
+      <div className="absolute z-10">
         <button
           onClick={(e) => toggleShow(e)}
           className="absolute left-0 top-0 w-16 flex justify-center py-2  z-20 "
@@ -85,6 +85,7 @@ const Sidebar = () => {
           </div>
         )}
       </div>
+      {show && <div onClick={toggleShow} className="absolute inset-0"></div>}
     </div>
   );
 };
