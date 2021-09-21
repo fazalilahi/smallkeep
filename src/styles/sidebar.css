@@ -1,6 +1,6 @@
 :root {
-  --text-primary: #9ca3af;
-  --text-secondary: #6b7280;
+  --text-primary: #6b7280;
+  --text-secondary: #4b5563;
   --bg-primary: #f9fafb;
   --bg-secondary: #f3f4f6;
   --transition-speed: 600ms;
@@ -58,6 +58,7 @@
 }
 .sidebar:hover {
   width: 10rem;
+  box-shadow: 0 15px 30px #6b728032;
 }
 .sidebar:hover .link-text {
   display: inline;
