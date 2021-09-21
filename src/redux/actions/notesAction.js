@@ -1,4 +1,4 @@
-import isEmpty from 'lodash.isempty';
+// import isEmpty from "lodash.isempty";
 
 /**local */
 import {
@@ -7,16 +7,16 @@ import {
   ADD_NOTE,
   UPDATE_NOTE,
   DELETE_NOTE,
-} from './../actions/types';
+} from "./../actions/types";
 import {
   getNotesFromStore,
   addNoteToStore,
   updateNoteAtStore,
   deleteNoteFromStore,
-} from './../../api';
+} from "./../../api";
 
 /**TODO: remove below test code */
-import { staticNotes } from './../../data/static';
+// import { staticNotes } from "./../../data/static";
 
 /**
  * Retrieves a single note of given id
@@ -37,12 +37,12 @@ export const getNote = (id) => {
 export const getNotes = () => {
   let notes = getNotesFromStore();
 
-  if (isEmpty(notes)) {
-    notes = staticNotes;
-    staticNotes.forEach((note) => {
-      addNoteToStore(note);
-    });
-  }
+  // if (isEmpty(notes)) {
+  //   notes = staticNotes;
+  //   staticNotes.forEach((note) => {
+  //     addNoteToStore(note);
+  //   });
+  // }
 
   return {
     type: GET_NOTES,

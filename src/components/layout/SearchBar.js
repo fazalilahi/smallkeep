@@ -11,9 +11,10 @@ const SearchBar = () => {
   const dispatch = useDispatch();
 
   const { notes } = useSelector((state) => state.rootReducer.noteReducer);
+  const value = () => JSON.parse(localStorage.getItem("search-value"));
 
   /**states */
-  const [searchValue, setSearchValue] = useState("");
+  const [searchValue, setSearchValue] = useState(value);
   const [notesFiltered, setNotesFiltered] = useState(notes);
 
   /**effects: to retrieve notes from the state*/
@@ -27,12 +28,16 @@ const SearchBar = () => {
       let filteredNotes = getFilteredNotes(searchValue);
       setNotesFiltered(filteredNotes);
     } else setNotesFiltered(notes);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [notes]);
 
   /**handlers */
   const handleInputChange = (e) => {
     //sets search string
     const searchStr = e.target.value.toLowerCase();
+
+    localStorage.setItem("search-value", JSON.stringify(searchStr));
+
     setSearchValue(searchStr);
 
     //filter notes
