@@ -3,7 +3,7 @@
   --text-secondary: #4b5563;
   --bg-primary: #f9fafb;
   --bg-secondary: #f3f4f6;
-  --transition-speed: 600ms;
+  --transition-speed: 400ms;
 }
 
 .sidebar {
@@ -13,7 +13,6 @@
 
   width: 2.5rem;
   height: 100vh;
-  padding-top: 2rem;
 }
 
 .sidebar-nav {
@@ -37,7 +36,7 @@
   text-decoration: none;
   filter: grayscale(100%) opacity(0.7);
   transition: var(--transition-speed);
-  margin-left: 0.7rem;
+  padding-left: 0.7rem;
 }
 
 .sidebar-link:hover {
@@ -56,10 +55,25 @@
   min-width: 2rem;
   margin: 0 1.5rem;
 }
+.logo {
+  transform: rotate(0deg);
+  transition: var(--transition-speed);
+}
+
 .sidebar:hover {
   width: 10rem;
   box-shadow: 0 15px 30px #6b728032;
 }
 .sidebar:hover .link-text {
   display: inline;
+}
+
+.sidebar .logo {
+  transform: rotate(0deg);
+  transition: 200ms;
+}
+
+.sidebar:hover .logo {
+  transform: rotate(-180deg);
+  margin-left: 7rem;
 }
